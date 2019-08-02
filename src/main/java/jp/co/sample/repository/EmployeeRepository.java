@@ -12,6 +12,10 @@ import org.springframework.stereotype.Repository;
 
 import jp.co.sample.domain.Employee;
 
+/**
+ * administratorsテーブルを操作するリポジトリ.
+ * @author hirokiokazaki
+ */
 @Repository
 public class EmployeeRepository {
 
@@ -37,30 +41,47 @@ public class EmployeeRepository {
 
 		return employee;
 	};
+	
+	
 
+	/**
+	 * 全従業員の情報を取得
+	 * 
+	 * @return　従業員情報
+	 */
 	public List<Employee> findAll() {
 		String sql = "select id,name,image,gender,hireDate,mailAddress,zipCode,address,telephone,salary,characteristics,dependentsCount FROM employees ORDER BY hireDate";
 
-		List<Employee> employee = template.query(sql, EMPLOYEE_ROW_MAPPER); // ←ここに実行の処理を書く
+		List<Employee> employee = template.query(sql, EMPLOYEE_ROW_MAPPER); 
 
 		return employee;
 	}
 
+	/**
+	 * 指定したidの従業員情報を取得
+	 * @param id　主キー
+	 * @return　従業員情報
+	 */
 	public Employee load(Integer id) {
-		String sql = "select id,name,age,dep_id from employees where id = :id";
+		String sql = "select id,name,image,gender,hireDate,mailAddress,zipCode,address,telephone,salary,characteristics,dependentsCount from employees where id = :id";
 
-		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id); // ←ここにプレースホルダにセットする処理を書く
+		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 
-		Employee employee = template.queryForObject(sql, param, EMPLOYEE_ROW_MAPPER); // ←ここに実行処理を書く
+		Employee employee = template.queryForObject(sql, param, EMPLOYEE_ROW_MAPPER);
 
 		return employee;
 	}
 
+	/**
+	 * 指定したidの従業員情報の内、扶養人数を変更する
+	 * @param employee　従業員情報のドメイン
+	 * @return
+	 */
 	public Employee update(Employee employee) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 
 		if (employee.getId() != null) {
-			String insertSql = "INSERT INTO employees(dependentsCount) VALUES(:dependentsCount)";
+			String insertSql = "UPDATE employees SET dependentsCount = :dependentsCount WHERE id = :id";
 
 			template.update(insertSql, param);
 		}

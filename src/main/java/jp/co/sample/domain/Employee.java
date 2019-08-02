@@ -3,8 +3,9 @@ package jp.co.sample.domain;
 import java.util.Date;
 
 /**
+ * employeesテーブル(従業員)に対応したドメインクラス.
+ * 
  * @author hirokiokazaki
- * employeesテーブル(従業員)に対応したドメインクラス
  */
 public class Employee {
 

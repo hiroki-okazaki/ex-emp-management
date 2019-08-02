@@ -1,5 +1,11 @@
 package jp.co.sample.domain;
 
+/**
+ * 管理者情報を表すクラス.
+ * 
+ * @author hirokiokazaki
+ *
+ */
 public class Administrator {
 
 	/** 管理者ID */
