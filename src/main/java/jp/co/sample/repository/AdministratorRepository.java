@@ -69,6 +69,7 @@ public class AdministratorRepository {
 		
 		Administrator administrator = template.queryForObject(sql, param, ADMINISTRATOR_ROW_MAPPER);
 		
+		
 		return administrator;
 	}
 	
