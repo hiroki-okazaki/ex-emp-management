@@ -1,6 +1,6 @@
 package jp.co.sample.domain;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @author hirokiokazaki
@@ -17,7 +17,7 @@ public class Employee {
 	/** 性別	 */
 	private String gender;
 	/** 入社日 */
-	private LocalDate hireDate;
+	private Date hireDate;
 	/** メールアドレス */
 	private String mailAddress;
 	/** 社員コード */
@@ -33,6 +33,30 @@ public class Employee {
 	/** 扶養人数 */
 	private Integer dependentsCount;
 	
+	
+	/**
+	 * コンストラクタ
+	 */
+	public Employee() {}
+	
+	public Employee(Integer id, String name, String image, String gender, Date hireDate, String mailAddress,
+			String zipCode, String address, String telephone, Integer salary, String characteristics,
+			Integer dependentsCount) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.image = image;
+		this.gender = gender;
+		this.hireDate = hireDate;
+		this.mailAddress = mailAddress;
+		this.zipCode = zipCode;
+		this.address = address;
+		this.telephone = telephone;
+		this.salary = salary;
+		this.characteristics = characteristics;
+		this.dependentsCount = dependentsCount;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hireDate="
@@ -73,11 +97,11 @@ public class Employee {
 		this.gender = gender;
 	}
 
-	public LocalDate getHireDate() {
+	public Date getHireDate() {
 		return hireDate;
 	}
 
-	public void setHireDate(LocalDate hireDate) {
+	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
 

@@ -11,8 +11,10 @@ public class InsertAdministratorForm {
 	/** パスワード */
 	private String password;
 
+	@Override
 	public String toString() {
-		return "Administrator [name= " + name + ", mailAddress= " + mailAddress + ", password = " + password + "]";
+		return "InsertAdministratorForm [name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
+				+ "]";
 	}
 
 	public String getName() {

@@ -13,5 +13,7 @@ public class AdministratorService {
 	
 	@Autowired
 	private AdministratorRepository administratorRepository;
+	
+	
 
 }
