@@ -8,7 +8,6 @@ public class LoginForm {
 	 * メールアドレス
 	 */
 	private String mailAddress;
-	
 	/**
 	 * ・パスワード
 	 */
