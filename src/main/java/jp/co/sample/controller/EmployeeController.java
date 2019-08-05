@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jp.co.sample.domain.Employee;
 import jp.co.sample.form.UpdateEmployeeForm;
 import jp.co.sample.service.EmployeeService;
 
@@ -33,5 +34,18 @@ public class EmployeeController {
 		int integerID = Integer.parseInt(id);
 		model.addAttribute("showDetail",employeeService.showDetail(integerID));
 		return "employee/detail";
+	}
+	
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		Employee employee = new Employee();
+		int integerID = Integer.parseInt(form.getId());
+		int integerDependentsCount = Integer.parseInt(form.getDependentsCount());
+		
+		employee.setId(integerID);
+		employee.setDependentsCount(integerDependentsCount);
+		
+		employeeService.update(employee);
+		return "redirect:/employee/showList";
 	}
 }

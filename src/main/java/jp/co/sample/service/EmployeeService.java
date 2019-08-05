@@ -25,4 +25,8 @@ public class EmployeeService {
 		Employee employee = employeeRepository.load(id);
 		return employee;
 	}
+	
+	public void update(Employee employee) {
+		employeeRepository.update(employee);
+	}
 }
