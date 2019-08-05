@@ -26,8 +26,7 @@ public class AdministratorService {
 //	}
 	
 	public Administrator login(String mailAddress,String password) {
-		Administrator administrator =  administratorRepository.findByMailAddress
-				(mailAddress);
+		Administrator administrator =  administratorRepository.findByMailAddressAndPassword(mailAddress,password);
 		return administrator;
 	}
 }

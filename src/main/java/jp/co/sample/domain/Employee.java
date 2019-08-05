@@ -21,7 +21,7 @@ public class Employee {
 	private Date hireDate;
 	/** メールアドレス */
 	private String mailAddress;
-	/** 社員コード */
+	/** 郵便番号 */
 	private String zipCode;
 	/** 住所 */
 	private String address;
@@ -161,7 +161,4 @@ public class Employee {
 	public void setDependentsCount(Integer dependentsCount) {
 		this.dependentsCount = dependentsCount;
 	}
-
-
-	
 }

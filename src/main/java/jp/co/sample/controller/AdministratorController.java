@@ -39,10 +39,10 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * フォームオブジェクトの中身をAdoministratorドメインオブジェクトにコピー
-	 * してinsertメソッドを呼ぶ
-	 * @param form 
-	 * @return
+	 * 管理者情報を登録する.
+	 * 
+	 * @param form  フォーム
+	 * @return　ログイン画面(リダイレクト)
 	 */
 	@RequestMapping("/insert")
 	public String insert(InsertAdministratorForm form) {
@@ -57,6 +57,7 @@ public class AdministratorController {
 	}
 	
 	/**
+	 * ログイン画面を表示する.
 	 * 
 	 * @return　ログイン画面を表示
 	 */
@@ -76,6 +77,4 @@ public class AdministratorController {
 		session.setAttribute("administratorName",administrator.getName());
 		return "foward:/employee/showList;";		
 	}
-	
-	
 }

@@ -37,6 +37,7 @@ public class AdministratorRepository {
 	};
 	
 	/**
+	 * 管理者情報を登録する.
 	 * IDがnullのrowに名前、メールアドレス、パスワードを挿入(idは自動生成)
 	 * 
 	 * @param administrator　管理者情報のドメイン
@@ -74,9 +75,9 @@ public class AdministratorRepository {
 //		
 //		return administrator;
 //	}
-	public Administrator findByMailAddress(String mailAddress) {
-		String sql = "select id,name,mail_address,password from administrators where mail_address=:mailAddress";
-		SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress);
+	public Administrator findByMailAddressAndPassword(String mailAddress,String password) {
+		String sql = "select id,name,mail_address,password from administrators where mail_address=:mailAddress AND password=:password" ;
+		SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress).addValue("password",password);
 		List<Administrator> administratorList = template.query(sql, param, ADMINISTRATOR_ROW_MAPPER);
 		if (administratorList.size() == 0) {
 			return null;
